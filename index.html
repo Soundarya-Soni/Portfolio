@@ -14,10 +14,10 @@
 
   <style>
     :root {
-      --primary: #8e7cc3; /* light purple */
-      --secondary: #f5f3fb;
-      --dark: #2e2e2e;
-      --light: #ffffff;
+      --primary: #9b8cff; /* soft purple accent */
+      --secondary: #0f1220; /* dark background */
+      --dark: #eaeaf0; /* light text */
+      --light: #161a2b; /* card background */
     }
 
     * {
@@ -54,8 +54,32 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
       z-index: 1000;
+    }
+
+    .theme-toggle {
+      margin-left: 20px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--primary);
+      background: transparent;
+      color: var(--dark);
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     nav a {
@@ -116,8 +140,17 @@
 
     .hero-img img {
       width: 280px;
+      height: 280px;
+      object-fit: cover;
       border-radius: 50%;
-      border: 5px solid var(--primary);
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 30px rgba(155, 140, 255, 0.45);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-img img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 45px rgba(155, 140, 255, 0.65);
     }
 
     /* CARDS */
@@ -126,7 +159,7 @@
       padding: 25px;
       border-radius: 12px;
       margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     }
 
     /* SKILLS */
@@ -142,8 +175,8 @@
 
     /* FOOTER */
     footer {
-      background: var(--primary);
-      color: #fff;
+      background: #0b0e1a;
+      color: var(--dark);
       text-align: center;
       padding: 30px;
     }
@@ -177,11 +210,12 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     </div>
   </nav>
 
   <!-- HOME -->
-  <section id="home">
+  <section id="home" class="fade-in">
     <div class="hero-text">
       <h1>Soundarya Achalakar</h1>
       <h3>Software Engineer Fresher | Data Analytics</h3>
@@ -192,12 +226,12 @@
       <a class="btn btn-secondary" href="#contact">Contact Me</a>
     </div>
     <div class="hero-img">
-      <img src="https://via.placeholder.com/300" alt="Profile Photo" />
+      <img src="profile.jpg" alt="Soundarya Achalakar - Profile Photo" />
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
     <div class="card">
       <h4>Education</h4>
@@ -215,7 +249,7 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="skills">
+  <section id="skills" class="fade-in">
     <h2>Skills</h2>
     <div class="card">
       <h4>Technical Skills</h4>
@@ -233,7 +267,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects">
+  <section id="projects" class="fade-in">
     <h2>Projects</h2>
 
     <div class="card">
@@ -252,7 +286,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact</h2>
     <div class="card">
       <p><strong>Email:</strong> <a href="mailto:soundaryaachalakar@gmail.com">soundaryaachalakar@gmail.com</a></p>
@@ -269,5 +303,21 @@
     <p>© 2026 Soundarya Achalakar | Portfolio</p>
   </footer>
 
+  <script>
+    let darkMode = true;
+    function toggleTheme() {
+      const root = document.documentElement;
+      if (darkMode) {
+        root.style.setProperty('--secondary', '#f5f3fb');
+        root.style.setProperty('--dark', '#2e2e2e');
+        root.style.setProperty('--light', '#ffffff');
+      } else {
+        root.style.setProperty('--secondary', '#0f1220');
+        root.style.setProperty('--dark', '#eaeaf0');
+        root.style.setProperty('--light', '#161a2b');
+      }
+      darkMode = !darkMode;
+    }
+  </script>
 </body>
 </html>
