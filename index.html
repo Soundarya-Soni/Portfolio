@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soundarya Achalakar | Portfolio</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Soundarya Achalakar – Software Engineer Fresher | Data Analytics | BCA Student Portfolio" />
-  <meta name="keywords" content="Soundarya Achalakar, BCA, Software Engineer Fresher, Portfolio" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
+  <title>Soundarya Achalakar | Aspiring Software Engineer|Data Analytics</title>
+  <meta name="description" content="Soundarya Achalakar – Aspiring Software Engineer & Data Analytics student portfolio for placements." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #9b8cff; /* soft purple accent */
-      --secondary: #0f1220; /* dark background */
-      --dark: #eaeaf0; /* light text */
-      --light: #161a2b; /* card background */
+      --bg-dark: #0f0a1f;
+      --bg-card: #1a1233;
+      --primary: #7c5cff;
+      --secondary: #c3b8ff;
+      --text-main: #ffffff;
+      --text-muted: #cfcfe6;
     }
 
     * {
@@ -25,77 +23,50 @@
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: var(--secondary);
-      color: var(--dark);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0a1f, #1b1240);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
+    a { color: var(--primary); text-decoration: none; }
+
     section {
-      padding: 80px 10%;
+      padding: 80px 8%;
+    }
+
+    h1, h2, h3 {
+      color: #fff;
     }
 
     h2 {
-      font-size: 2rem;
       margin-bottom: 30px;
-      color: var(--primary);
+      font-size: 2.2rem;
+      position: relative;
     }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      background: var(--light);
-      padding: 15px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      z-index: 1000;
-    }
-
-    .theme-toggle {
-      margin-left: 20px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--primary);
-      background: transparent;
-      color: var(--dark);
-      cursor: pointer;
-      font-weight: 500;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.8s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      border-radius: 10px;
     }
 
     /* HERO */
-    #home {
+    .hero {
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 100vh;
       gap: 40px;
+      animation: fadeIn 1.2s ease;
     }
 
     .hero-text {
@@ -103,28 +74,28 @@
     }
 
     .hero-text h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
 
     .hero-text h3 {
       font-weight: 500;
-      margin: 10px 0;
+      color: var(--secondary);
+      margin-bottom: 20px;
     }
 
     .hero-text p {
-      margin: 20px 0;
+      color: var(--text-muted);
+      margin-bottom: 30px;
     }
 
-    .btn {
-      padding: 12px 24px;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 500;
-      margin-right: 10px;
+    .btn-group a {
       display: inline-block;
+      padding: 12px 26px;
+      border-radius: 30px;
+      margin-right: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
 
     .btn-primary {
@@ -132,192 +103,202 @@
       color: #fff;
     }
 
+    .btn-primary:hover { background: #6849ff; }
+
     .btn-secondary {
       border: 2px solid var(--primary);
       color: var(--primary);
-      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: #fff;
     }
 
     .hero-img img {
-      width: 280px;
-      height: 280px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid var(--primary);
-      box-shadow: 0 0 30px rgba(155, 140, 255, 0.45);
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    /* CARD STYLE */
+    .card {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: 16px;
+      margin-bottom: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .hero-img img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 45px rgba(155, 140, 255, 0.65);
-    }
-
-    /* CARDS */
-    .card {
-      background: var(--light);
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
     }
 
     /* SKILLS */
-    .badges span {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 8px 14px;
-      border-radius: 20px;
-      margin: 6px;
-      font-size: 0.9rem;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
-    /* FOOTER */
+    ul {
+      padding-left: 18px;
+    }
+
+    /* CONTACT */
+    .contact-info p {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      margin-right: 15px;
+      font-weight: 500;
+    }
+
     footer {
-      background: #0b0e1a;
-      color: var(--dark);
       text-align: center;
-      padding: 30px;
+      padding: 25px;
+      background: #0b0817;
+      color: var(--text-muted);
     }
 
-    footer a {
-      color: #fff;
-      margin: 0 10px;
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     /* RESPONSIVE */
-    @media(max-width: 900px) {
-      #home {
+    @media (max-width: 900px) {
+      .hero {
         flex-direction: column-reverse;
         text-align: center;
       }
 
-      nav {
-        flex-direction: column;
-      }
+      h2::after { left: 50%; transform: translateX(-50%); }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <strong>Soundarya</strong>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-    </div>
-  </nav>
-
-  <!-- HOME -->
-  <section id="home" class="fade-in">
+  <!-- HERO -->
+  <section class="hero" id="home">
     <div class="hero-text">
       <h1>Soundarya Achalakar</h1>
-      <h3>Software Engineer Fresher | Data Analytics</h3>
+      <h3>Aspiring Software Engineer | Data Analytics</h3>
       <p>
-        Detail-oriented and ambitious BCA student with hands-on experience in front-end development and machine learning. Passionate about building intuitive interfaces and exploring intelligent systems.
+        Detail-oriented and ambitious BCA student with hands-on experience in front-end development and machine learning.
+        Passionate about building intuitive user interfaces and exploring intelligent systems.
       </p>
-      <a class="btn btn-primary" href="https://drive.google.com/file/d/15btyGykGs1Z31SbN24EI9JBvwJtozm7N/view?usp=sharing" target="_blank">Download Resume</a>
-      <a class="btn btn-secondary" href="#contact">Contact Me</a>
+      <div class="btn-group">
+        <a class="btn-primary" href="https://drive.google.com/file/d/15btyGykGs1Z31SbN24EI9JBvwJtozm7N/view?usp=sharing" target="_blank">Download Resume</a>
+        <a class="btn-secondary" href="#contact">Contact Me</a>
+      </div>
     </div>
     <div class="hero-img">
-      <img src="profile.jpg" alt="Soundarya Achalakar - Profile Photo" />
+      <img src="https://via.placeholder.com/400x450.png?text=Profile+Photo" alt="Soundarya Achalakar">
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="fade-in">
+  <section id="about">
     <h2>About Me</h2>
     <div class="card">
-      <h4>Education</h4>
-      <ul>
-        <li><strong>BCA</strong> – KLE Society’s G.H BCA College, Haveri (2023–2026)</li>
-        <li><strong>PU</strong> – Government Majid PU College, Savanur (2023)</li>
-        <li><strong>SSLC</strong> – Morarji Desai Residential School, Bevinahalli (2021)</li>
-      </ul>
-      <br />
-      <h4>Career Objective</h4>
-      <p>
-        Motivated BCA student seeking an entry-level opportunity in IT or software development to apply programming knowledge, problem-solving skills, and continuous learning.
+      <p><strong>Bachelor of Computer Applications (BCA)</strong><br>
+      K.L.E Society’s G.H BCA College, Haveri<br>
+      2023 – 2026 (Expected) | CGPA: 9.33</p>
+
+      <p><strong>Career Objective:</strong><br>
+      Motivated BCA student seeking an entry-level opportunity or internship in the IT or software development field.
       </p>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills" class="fade-in">
+  <section id="skills">
     <h2>Skills</h2>
-    <div class="card">
-      <h4>Technical Skills</h4>
-      <div class="badges">
-        <span>C</span><span>C++</span><span>Java</span><span>Python</span>
-        <span>DSA</span><span>AI/ML</span><span>HTML</span><span>CSS</span><span>React.js</span>
-        <span>Git</span><span>VS Code</span><span>Jupyter</span><span>SQL</span><span>DBMS</span>
+    <div class="skills-grid">
+      <div class="card">
+        <h3>Programming</h3>
+        <p>C++, Java, Python, OOP, DSA, AI/ML</p>
       </div>
-      <br />
-      <h4>Soft Skills</h4>
-      <div class="badges">
-        <span>Problem Solving</span><span>Time Management</span><span>Adaptability</span><span>Project Planning</span>
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>HTML, CSS, React.js</p>
+      </div>
+      <div class="card">
+        <h3>Tools & Databases</h3>
+        <p>Git, VS Code, Jupyter Notebook, SQL, DBMS</p>
+      </div>
+      <div class="card">
+        <h3>Soft Skills</h3>
+        <p>Problem-solving, Time management, Adaptability</p>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="fade-in">
+  <section id="projects">
     <h2>Projects</h2>
 
     <div class="card">
-      <h4>Regression Models in Python</h4>
-      <p>Implemented Linear Regression, Support Vector Regression, and Decision Tree models for predictive analytics.</p>
-      <p><strong>Tech:</strong> Python, Scikit-learn</p>
+      <h3>Regression Models in Python (AI/ML)</h3>
+      <p>
+        Built and evaluated multiple regression models to perform predictive analytics using real datasets.
+      </p>
+      <p><strong>Technologies:</strong> Python, Scikit-learn, Pandas</p>
+      <p><strong>Key Features:</strong> Linear Regression, SVR, Decision Tree models</p>
       <a href="https://github.com/Soundarya-Soni/Soundarya_A_Python.git" target="_blank">GitHub Repository</a>
     </div>
 
     <div class="card">
-      <h4>Interactive Registration Form</h4>
-      <p>Designed and deployed a responsive HTML/CSS form using GitHub Pages for static hosting.</p>
-      <p><strong>Tech:</strong> HTML, CSS, GitHub Pages</p>
+      <h3>Interactive Registration Form</h3>
+      <p>
+        Designed and deployed a fully responsive registration form with modern UI practices.
+      </p>
+      <p><strong>Technologies:</strong> HTML, CSS, GitHub Pages</p>
+      <p><strong>Key Features:</strong> Responsive design, client-side validation</p>
       <a href="https://soundarya-soni.github.io/responsive_registration_form/" target="_blank">Live Demo</a>
+    </div>
+
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="card">
+      <ul>
+        <li>Fundamentals of Front-End Development</li>
+        <li>Artificial Intelligence & Machine Learning (Python) – 2025</li>
+        <li>Advanced Networks & OOP using C++ – 2025</li>
+      </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="fade-in">
+  <section id="contact">
     <h2>Contact</h2>
-    <div class="card">
-      <p><strong>Email:</strong> <a href="mailto:soundaryaachalakar@gmail.com">soundaryaachalakar@gmail.com</a></p>
-      <p><strong>Phone:</strong> +91 9108188274</p>
-      <p><strong>Location:</strong> Haveri, Karnataka</p>
-      <p>
-        <a href="https://github.com/Soundarya-Soni" target="_blank">GitHub</a> |
-        <a href="https://linkedin.com/in/soundarya-achalakar-359642377" target="_blank">LinkedIn</a>
-      </p>
+    <div class="card contact-info">
+      <p>Email: <a href="mailto:soundaryaachalakar@gmail.com">soundaryaachalakar@gmail.com</a></p>
+      <p>Phone: 9108188274</p>
+      <p>Location: Haveri, Karnataka</p>
+      <div class="social-links">
+        <a href="https://github.com/Soundarya-Soni" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/soundarya-achalakar-359642377" target="_blank">LinkedIn</a>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Soundarya Achalakar | Portfolio</p>
+    © 2026 Soundarya Achalakar | Portfolio Website
   </footer>
 
-  <script>
-    let darkMode = true;
-    function toggleTheme() {
-      const root = document.documentElement;
-      if (darkMode) {
-        root.style.setProperty('--secondary', '#f5f3fb');
-        root.style.setProperty('--dark', '#2e2e2e');
-        root.style.setProperty('--light', '#ffffff');
-      } else {
-        root.style.setProperty('--secondary', '#0f1220');
-        root.style.setProperty('--dark', '#eaeaf0');
-        root.style.setProperty('--light', '#161a2b');
-      }
-      darkMode = !darkMode;
-    }
-  </script>
 </body>
 </html>
